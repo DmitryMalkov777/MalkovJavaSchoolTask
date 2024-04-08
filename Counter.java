@@ -25,7 +25,8 @@ public class Counter implements Serializable {
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("counter.ser"))) {
             out.writeObject(this);
         }
-        catch (IOException e) { // Сделал игнорирование исключения, возможно правильно
+        catch (IOException e) {
+            e.getMessage();
         }
     }
 
@@ -34,7 +35,8 @@ public class Counter implements Serializable {
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("counter.ser"))) {
             counter = (Counter) in.readObject();
         }
-        catch (IOException | ClassNotFoundException e ) { // Сделал игнорирование исключения, возможно правильно
+        catch (IOException | ClassNotFoundException e ) {
+            e.getMessage();
         }
         return counter;
     }
