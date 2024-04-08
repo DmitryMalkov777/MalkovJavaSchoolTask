@@ -26,7 +26,7 @@ public class Counter implements Serializable {
             out.writeObject(this);
         }
         catch (IOException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -36,7 +36,7 @@ public class Counter implements Serializable {
             counter = (Counter) in.readObject();
         }
         catch (IOException | ClassNotFoundException e ) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         return counter;
     }
